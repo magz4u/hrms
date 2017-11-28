@@ -1,0 +1,19 @@
+<head>
+    <title>Test Geocoding Page</title>
+</head>
+
+<body>
+    <strong>Address Retrieval with Coordinates:</strong>
+    <p>Coordinates: <?php echo $this->latitude . ", " . $this->longitude;?></p>
+    <p>Street: <?php echo $this->street;?></p>
+    <p>City: <?php echo $this->city; ?></p>
+    <p>County: <?php echo $this->county; ?></p>
+    <p>State: <?php echo $this->state; ?></p>
+    <p>Country: <?php echo $this->country; ?></p>
+    <p>Full Address: <?php echo $this->address; ?></p>
+    
+    <strong>Coordinates Retrieval with Address:</strong>
+    <p>Full Address: <?php echo $this->address2; ?></p>
+    <p>Latitude: <?php echo $this->latitude2; ?> <br>
+       Longitude: <?php echo $this->longitude2; ?></p>
+</body>

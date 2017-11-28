@@ -1,0 +1,62 @@
+ <script>
+$( document ).ready(function() {
+  console.log( "ready!" );
+  getLocation();
+});
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+function showPosition(position) {
+  $('#lat').val(position.coords.latitude);
+  $('#long').val(position.coords.longitude);
+  $('#latck').val(position.coords.latitude);
+  $('#longck').val(position.coords.longitude);
+
+  console.log(position.coords.latitude);
+  console.log(position.coords.longitude);
+
+}
+
+
+</script>
+<div class="container">
+  <div class="new-form-ui-submit">
+
+    <form id="<?php echo $this->form->getId(); ?>" name="<?php echo $this->form->getName()?>" action="<?php echo $this->form->getAction() ?>" method="<?php echo $this->form->getMethod()?>">
+
+      <?php
+      if($this->noofcheckin == 0 ) {
+        echo $this->form->submit;
+      }
+      else {
+        echo "<br><br>";
+        echo  "<font size='4'>";
+        echo $this->messagelck;
+        echo "<br><br>";
+        echo "</font>";
+      };
+
+      if($this->noofcheckouts == 0 && $this->hideCheckout == false) {
+        echo $this->form->button;
+      } else {
+        echo "<br><br>";
+        echo  "<font size='4'>";
+        echo $this->messagelco;
+        echo "<br><br>";
+        echo "</font>";
+      }
+      ?>
+      <input type="hidden" name="latitude" value="" id="lat">
+      <input type="hidden" name="longitude" value="" id="long">
+      <input type="hidden" name="latitude_co" value="" id="latck">
+      <input type="hidden" name="longitude_co" value="" id="longck">
+
+
+
+    </form>
+  </div>
+</div>
